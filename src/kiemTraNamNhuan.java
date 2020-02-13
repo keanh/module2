@@ -6,12 +6,21 @@ public class kiemTraNamNhuan {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập năm cần kiểm tra");
         year = scanner.nextInt();
-        if (year % 4 == 0 && year % 100 != 0){
-            System.out.println("Năm nhuận");
-        }else if (year % 100 == 0 && year % 400 == 0){
-            System.out.println("Năm nhuận");
+        boolean isLeapYear = false;
+        if(year % 4 == 0){
+            if(year % 100 == 0){
+                if(year % 400 == 0){
+                    isLeapYear = true;
+                }
+            } else {
+                    isLeapYear = true;
+            }
+        }
+
+        if (isLeapYear == true){
+            System.out.printf("%d is a leap year", year);
         }else{
-            System.out.println("Không phải năm nhuận");
+            System.out.printf("%d is not a leap year",year);
         }
     }
 }
